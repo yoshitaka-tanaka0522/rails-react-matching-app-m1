@@ -18,7 +18,7 @@ gem 'puma', '~> 5.0'
 gem 'rack-cors'
 gem 'devise'
 gem 'devise_token_auth'
-
+gem 'carrierwave'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
