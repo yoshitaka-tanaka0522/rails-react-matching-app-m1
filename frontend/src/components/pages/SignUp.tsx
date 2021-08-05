@@ -27,7 +27,7 @@ import CancelIcon from "@material-ui/icons/Cancel"
 import { AuthContext } from "App"
 import AlertMessage from "components/utils/AlertMessage"
 import { signUp } from "lib/api/auth"
-import { SignUpFormData } from "interfaces/index"
+import { SignUpData } from "interfaces/index"
 import { prefectures } from "data/prefectures"
 import { genders } from "data/genders"
 
@@ -98,25 +98,34 @@ const SignUp: React.FC = () => {
   }, [])
 
   // フォームデータを作成
-  const createFormData = (): SignUpFormData => {
-    const formData = new FormData()
+  // const createFormData = (): SignUpFormData => {
+  //   const formData = new FormData()
 
-    formData.append("name", name)
-    formData.append("email", email)
-    formData.append("password", password)
-    formData.append("passwordConfirmation", passwordConfirmation)
-    formData.append("gender", String(gender))
-    formData.append("prefecture", String(prefecture))
-    formData.append("birthday", String(birthday))
-    formData.append("image", image)
+  //   formData.append("name", name)
+  //   formData.append("email", email)
+  //   formData.append("password", password)
+  //   formData.append("passwordConfirmation", passwordConfirmation)
+  //   formData.append("gender", String(gender))
+  //   formData.append("prefecture", String(prefecture))
+  //   formData.append("birthday", String(birthday))
+  //   formData.append("image", image)
 
-    return formData
-  }
+  //   return formData
+  // }
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
 
-    const data = createFormData()
+    const data: SignUpData = {
+      name: name,
+      email: email,
+      password: password,
+      passwordConfirmation: passwordConfirmation,
+      gender: 1,
+      prefecture: 1,
+      birthday: new Date("2000-01-01T00:00:00"),
+      image: image,      
+    }
 
     try {
       const res = await signUp(data)

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useCallback } from "react"
+import React, { useCallback,useState,useContext } from "react"
 import { useHistory } from "react-router-dom"
 import Cookies from "js-cookie"
 
@@ -33,7 +33,7 @@ import { AuthContext } from "App"
 import { prefectures } from "data/prefectures"
 
 import { signOut } from "lib/api/auth"
-import { getUser, updateUser } from "lib/api/users"
+import { updateUser } from "lib/api/users"
 import { UpdateUserFormData } from "interfaces/index"
 
 const useStyles = makeStyles((theme: Theme) => ({
